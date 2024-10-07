@@ -9,12 +9,23 @@ const CharacterGrid = () => {
   const [characters, setCharacters] = useState([]);
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState({ status: '', species: '', gender: '' });
+  const [error, setError] = useState(null);
+
+  const fetchCharacters = async () => {
+    const { results, error } = await getCharacters(page, { name: searchTerm, ...filters });
+
+    if (error) {
+      setError('No Data Found, Please try with different filters!'); 
+      setCharacters([]); 
+    } else {
+      setCharacters(results);
+      setError(null); 
+    }
+  };
 
   useEffect(() => {
-    getCharacters(page, { name: searchTerm, ...filters }).then(data => {
-      setCharacters(prev => [...prev, ...data.results]);
-    });
+    fetchCharacters();
   }, [page, searchTerm, filters]);
 
   const loadMore = () => setPage(page + 1);
@@ -23,6 +34,7 @@ const CharacterGrid = () => {
     <div>
       <SearchBar setSearchTerm={setSearchTerm} />
       <Filter setFilters={setFilters} />
+      {error && <div className={styles.errorMessage}>{error}</div>} 
       <div className={styles.gridContainer}>
         {characters.map(character => (
           <CharacterCard key={character.id} character={character} />

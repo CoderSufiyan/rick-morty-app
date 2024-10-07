@@ -1,22 +1,36 @@
 import React from 'react';
+import styles from './Filter.module.css';
 
 const Filter = ({ setFilters }) => {
-  const handleFilterChange = (e) => {
-    setFilters((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
+  const handleFilterChange = (event) => {
+    const { name, value } = event.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
     }));
   };
 
   return (
-    <div>
-      <select name="status" onChange={handleFilterChange}>
+    <div className={styles.filterContainer}>
+      <select name="status" onChange={handleFilterChange} className={styles.filterSelect}>
         <option value="">All Status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
         <option value="unknown">Unknown</option>
       </select>
-      <select name="gender" onChange={handleFilterChange}>
+      <select name="species" onChange={handleFilterChange} className={styles.filterSelect}>
+        <option value="">All Species</option>
+        <option value="Human">Human</option>
+        <option value="Alien">Alien</option>
+        <option value="Humanoid">Humanoid</option>
+        <option value="Animal">Animal</option>
+        <option value="Mythological">Mythological</option>
+        <option value="Robot">Robot</option>
+        <option value="Disease">Disease</option>
+        <option value="Poison">Poison</option>
+        <option value="unknown">Unknown</option>
+      </select>
+      <select name="gender" onChange={handleFilterChange} className={styles.filterSelect}>
         <option value="">All Genders</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
