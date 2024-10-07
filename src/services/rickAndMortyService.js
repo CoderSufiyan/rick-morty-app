@@ -1,4 +1,3 @@
-
 const BASE_URL = 'https://rickandmortyapi.com/api';
 
 export const fetchData = async (url) => {
@@ -24,7 +23,6 @@ export const fetchData = async (url) => {
     }
 };
 
-
 // Fetch characters with optional filters and pagination
 export const getCharacters = async (page = 1, filters = {}) => {
     const { name, status, species, gender } = filters;
@@ -49,17 +47,16 @@ export const getCharacters = async (page = 1, filters = {}) => {
     return { results, error };
 };
 
-
 // Fetch a specific character by ID
 export const getCharacterById = async (id) => {
     return await fetchData(`${BASE_URL}/character/${id}`);
 };
 
-// Fetch locations with optional filters
-export const getLocations = async (page = 1, name) => {
-    let query = `?page=${page}`;
+// Fetch all locations
+export const getLocations = async (name) => {
+    let query = '';
     if (name) {
-        query += `&name=${name}`;
+        query += `?name=${name}`;
     }
     const data = await fetchData(`${BASE_URL}/location${query}`);
     return data;

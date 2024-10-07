@@ -3,6 +3,7 @@ import { getCharacters } from '../services/rickAndMortyService';
 import CharacterCard from '../components/CharacterCard';
 import SearchBar from '../components/SearchBar';
 import Filter from '../components/Filter';
+import Spinner from '../components/Spinner'; 
 import styles from './CharacterGrid.module.css';
 
 const CharacterGrid = () => {
@@ -11,17 +12,20 @@ const CharacterGrid = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({ status: '', species: '', gender: '' });
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true); 
 
   const fetchCharacters = async () => {
+    setLoading(true); 
     const { results, error } = await getCharacters(page, { name: searchTerm, ...filters });
 
     if (error) {
-      setError('No Data Found, Please try with different filters!'); 
-      setCharacters([]); 
+      setError('No Data Found, Please try with different filters!');
+      setCharacters([]);
     } else {
       setCharacters(results);
-      setError(null); 
+      setError(null);
     }
+    setLoading(false); 
   };
 
   useEffect(() => {
@@ -34,12 +38,16 @@ const CharacterGrid = () => {
     <div>
       <SearchBar setSearchTerm={setSearchTerm} />
       <Filter setFilters={setFilters} />
-      {error && <div className={styles.errorMessage}>{error}</div>} 
-      <div className={styles.gridContainer}>
-        {characters.map(character => (
-          <CharacterCard key={character.id} character={character} />
-        ))}
-      </div>
+      {error && <div className={styles.errorMessage}>{error}</div>}
+      {loading ? ( 
+        <Spinner />
+      ) : (
+        <div className={styles.gridContainer}>
+          {characters.map(character => (
+            <CharacterCard key={character.id} character={character} />
+          ))}
+        </div>
+      )}
       <button className={styles.loadMoreButton} onClick={loadMore}>Load More</button>
     </div>
   );

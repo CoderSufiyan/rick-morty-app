@@ -1,19 +1,28 @@
-// src/pages/ProfilePage.js
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCharacterById } from '../services/rickAndMortyService';
+import Spinner from '../components/Spinner'; 
 import styles from './ProfilePage.module.css';
 
 const ProfilePage = () => {
   const { id } = useParams();
   const [character, setCharacter] = useState(null);
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    getCharacterById(id).then(setCharacter);
+    const fetchCharacter = async () => {
+      const data = await getCharacterById(id);
+      setCharacter(data);
+      setLoading(false);
+    };
+
+    fetchCharacter();
   }, [id]);
 
-  if (!character) return <div>Loading...</div>;
-console.log('char' ,character)
+  if (loading) return <Spinner />; 
+
+  if (!character) return <div>Error fetching character data.</div>; 
+
   return (
     <div className={styles.profileContainer}>
       <img src={character.image} alt={character.name} className={styles.profileImage} />
