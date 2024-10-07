@@ -27,7 +27,7 @@ const LocationGrid = () => {
 
   return (
     <div>
-      <SearchBar setSearchTerm={setSearchTerm} placeholder={"Search Location.."} />
+      <SearchBar setSearchTerm={setSearchTerm} placeholder={"Search Locations.."} />
       {error && <div className={styles.errorMessage}>{error}</div>} 
       <div className={styles.gridContainer}>
         {locations.map(location => (

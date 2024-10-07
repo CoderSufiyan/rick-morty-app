@@ -27,7 +27,7 @@ const EpisodeGrid = () => {
 
   return (
     <div>
-      <SearchBar setSearchTerm={setSearchTerm} placeholder={'Search Episode..'}/>
+      <SearchBar setSearchTerm={setSearchTerm} placeholder={'Search Episodes..'}/>
       {error && <div className={styles.errorMessage}>{error}</div>}
       <div className={styles.gridContainer}>
         {episodes.map(episode => (
