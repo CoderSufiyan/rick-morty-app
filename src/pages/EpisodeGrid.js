@@ -1,3 +1,4 @@
+// src/pages/EpisodeGrid.js
 import React, { useState, useEffect } from 'react';
 import { getEpisodes } from '../services/rickAndMortyService';
 import EpisodeCard from '../components/EpisodeCard';
@@ -10,10 +11,10 @@ const EpisodeGrid = () => {
   const [error, setError] = useState(null); // Error state
 
   const fetchEpisodes = async () => {
-    const { results, error } = await getEpisodes(searchTerm);
+    const { results, error } = await getEpisodes(1, searchTerm); // Fetch episodes with page 1 and search term
 
     if (error) {
-      setError(error); // Set the error message
+      setError('No Episodes Found'); // Set the error message
       setEpisodes([]); // Reset episodes
     } else {
       setEpisodes(results); // Set episodes if no error
@@ -23,12 +24,12 @@ const EpisodeGrid = () => {
 
   useEffect(() => {
     fetchEpisodes();
-  }, [searchTerm]); 
+  }, [searchTerm]); // Trigger fetch when searchTerm changes
 
   return (
     <div>
-      <SearchBar setSearchTerm={setSearchTerm} />
-      {error && <div className={styles.errorMessage}>{error}</div>} 
+      <SearchBar setSearchTerm={setSearchTerm} placeholder={'Search Episode..'}/>
+      {error && <div className={styles.errorMessage}>{error}</div>}
       <div className={styles.gridContainer}>
         {episodes.map(episode => (
           <EpisodeCard key={episode.id} episode={episode} />

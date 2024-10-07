@@ -36,7 +36,7 @@ const CharacterGrid = () => {
 
   return (
     <div>
-      <SearchBar setSearchTerm={setSearchTerm} />
+      <SearchBar setSearchTerm={setSearchTerm} placeholder={"Search Characters.."}/>
       <Filter setFilters={setFilters} />
       {error && <div className={styles.errorMessage}>{error}</div>}
       {loading ? ( 
