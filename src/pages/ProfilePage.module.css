@@ -1,0 +1,47 @@
+.profileContainer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .profileImage {
+    width: 250px;
+    height: auto;
+    border-radius: 50%;
+  }
+  
+  .profileDetails {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profileDetails h1 {
+    margin-bottom: 10px;
+  }
+  
+  .profileDetails p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .episodesList {
+    margin-top: 20px;
+  }
+  
+  .episodesList ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .episodesList li {
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+  }
+  
