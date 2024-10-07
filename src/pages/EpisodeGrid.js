@@ -9,19 +9,18 @@ const EpisodeGrid = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null); 
 
-  const fetchEpisodes = async () => {
-    const { results, error } = await getEpisodes(1, searchTerm); 
-
-    if (error) {
-      setError('No Episodes Found'); 
-      setEpisodes([]); 
-    } else {
-      setEpisodes(results); 
-      setError(null); 
-    }
-  };
-
   useEffect(() => {
+    const fetchEpisodes = async () => {
+        const { results, error } = await getEpisodes(1, searchTerm); 
+    
+        if (error) {
+          setError('No Episodes Found'); 
+          setEpisodes([]); 
+        } else {
+          setEpisodes(results); 
+          setError(null); 
+        }
+      };
     fetchEpisodes();
   }, [searchTerm]); 
 

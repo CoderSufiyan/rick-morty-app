@@ -9,19 +9,18 @@ const LocationGrid = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(null); 
 
-  const fetchLocations = async () => {
-    const { results, error } = await getLocations(searchTerm);
-
-    if (error) {
-      setError(error); // Set the error message
-      setLocations([]); // Reset locations
-    } else {
-      setLocations(results); // Set locations if no error
-      setError(null); // Clear any previous error
-    }
-  };
-
   useEffect(() => {
+    const fetchLocations = async () => {
+        const { results, error } = await getLocations(searchTerm);
+    
+        if (error) {
+          setError(error); // Set the error message
+          setLocations([]); // Reset locations
+        } else {
+          setLocations(results); // Set locations if no error
+          setError(null); // Clear any previous error
+        }
+      };
     fetchLocations();
   }, [searchTerm]); 
 

@@ -6,22 +6,6 @@
     padding: 16px;
 }
 
-.loadMoreButton {
-    margin: 20px auto;
-    display: block;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.loadMoreButton:hover {
-    background-color: #0056b3;
-}
-
 .errorMessage {
     color: red;
     margin: 20px;
@@ -29,3 +13,31 @@
     font-weight: bold;
     font-size: large;
 }
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .pagination button {
+    margin: 0 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination span {
+    margin: 0 10px;
+  }
+  
