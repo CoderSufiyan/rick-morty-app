@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { getEpisodeById } from '../services/rickAndMortyService';
 import Spinner from '../components/Spinner';
 import styles from './EpisodePage.module.css';
 
 const EpisodePage = () => {
   const { id } = useParams(); 
+  const navigate = useNavigate(); // Initialize the navigate function
   const [episode, setEpisode] = useState(null);
   const [loading, setLoading] = useState(true); 
 
@@ -25,6 +26,7 @@ const EpisodePage = () => {
 
   return (
     <div className={styles.episodeContainer}>
+      <button onClick={() => navigate(-1)} className={styles.backButton}>Back</button> {/* Back Button */}
       <h1>{episode.name}</h1>
       <p>Air Date: {episode.air_date}</p>
       <p>Episode: {episode.episode}</p>

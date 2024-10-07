@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { getLocationById } from '../services/rickAndMortyService';
 import Spinner from '../components/Spinner';
 import styles from './LocationPage.module.css';
 
 const LocationPage = () => {
   const { id } = useParams(); 
+  const navigate = useNavigate(); 
   const [location, setLocation] = useState(null);
   const [loading, setLoading] = useState(true); 
 
@@ -25,6 +26,7 @@ const LocationPage = () => {
 
   return (
     <div className={styles.locationContainer}>
+      <button onClick={() => navigate(-1)} className={styles.backButton}>Back</button> 
       <h1>{location.name}</h1>
       <p>Dimension: {location.dimension}</p>
       <p>Type: {location.type}</p>
