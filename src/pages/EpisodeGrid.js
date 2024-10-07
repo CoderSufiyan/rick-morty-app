@@ -1,4 +1,3 @@
-// src/pages/EpisodeGrid.js
 import React, { useState, useEffect } from 'react';
 import { getEpisodes } from '../services/rickAndMortyService';
 import EpisodeCard from '../components/EpisodeCard';
@@ -8,23 +7,23 @@ import styles from './EpisodeGrid.module.css';
 const EpisodeGrid = () => {
   const [episodes, setEpisodes] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const [error, setError] = useState(null); // Error state
+  const [error, setError] = useState(null); 
 
   const fetchEpisodes = async () => {
-    const { results, error } = await getEpisodes(1, searchTerm); // Fetch episodes with page 1 and search term
+    const { results, error } = await getEpisodes(1, searchTerm); 
 
     if (error) {
-      setError('No Episodes Found'); // Set the error message
-      setEpisodes([]); // Reset episodes
+      setError('No Episodes Found'); 
+      setEpisodes([]); 
     } else {
-      setEpisodes(results); // Set episodes if no error
-      setError(null); // Clear any previous error
+      setEpisodes(results); 
+      setError(null); 
     }
   };
 
   useEffect(() => {
     fetchEpisodes();
-  }, [searchTerm]); // Trigger fetch when searchTerm changes
+  }, [searchTerm]); 
 
   return (
     <div>
