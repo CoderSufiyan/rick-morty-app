@@ -12,13 +12,23 @@ const Filter = ({ setFilters }) => {
 
   return (
     <div className={styles.filterContainer}>
-      <select name="status" onChange={handleFilterChange} className={styles.filterSelect}>
+      <select
+        name="status"
+        onChange={handleFilterChange}
+        className={styles.filterSelect}
+        data-testid="status-filter" // Added data-testid
+      >
         <option value="">All Status</option>
         <option value="Alive">Alive</option>
         <option value="Dead">Dead</option>
         <option value="unknown">Unknown</option>
       </select>
-      <select name="species" onChange={handleFilterChange} className={styles.filterSelect}>
+      <select
+        name="species"
+        onChange={handleFilterChange}
+        className={styles.filterSelect}
+        data-testid="species-filter" // Added data-testid
+      >
         <option value="">All Species</option>
         <option value="Human">Human</option>
         <option value="Alien">Alien</option>
@@ -30,7 +40,12 @@ const Filter = ({ setFilters }) => {
         <option value="Poison">Poison</option>
         <option value="unknown">Unknown</option>
       </select>
-      <select name="gender" onChange={handleFilterChange} className={styles.filterSelect}>
+      <select
+        name="gender"
+        onChange={handleFilterChange}
+        className={styles.filterSelect}
+        data-testid="gender-filter" // Added data-testid
+      >
         <option value="">All Genders</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>

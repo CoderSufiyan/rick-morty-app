@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import { getEpisodeById } from '../services/rickAndMortyService';
 import Spinner from '../components/Spinner';
 import styles from './EpisodePage.module.css';
