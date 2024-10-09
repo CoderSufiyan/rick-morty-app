@@ -81,3 +81,14 @@ export const getEpisodes = async (page = 1, name) => {
 export const getEpisodeById = async (id) => {
     return await fetchData(`${BASE_URL}/episode/${id}`);
 };
+
+export const getCharacterByUrl = async (url) => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching character by URL:", error);
+    }
+  };
+  

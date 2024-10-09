@@ -1,41 +1,58 @@
 .episodeContainer {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .episodeContainer h1 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .episodeContainer p {
-    font-size: 1.2rem;
-    margin: 5px 0;
-  }
-  
-  .episodeContainer ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .episodeContainer ul li {
-    font-size: 1rem;
-    margin: 5px 0;
-  }
-  
-  .backButton {
-    margin-bottom: 20px; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    background-color: #007bff; 
-    color: white; 
-    border: none;
-    border-radius: 5px; 
-    cursor: pointer; 
-    transition: background-color 0.3s; 
-  }
-  
-  .backButton:hover {
-    background-color: #0056b3;
-  }
-  
+  padding: 20px;
+  text-align: center;
+}
+
+.episodeContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.episodeContainer p {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.backButton {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.backButton:hover {
+  background-color: #0056b3;
+}
+
+.charactersGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.characterTile {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 120px; /* Adjust width as needed */
+}
+
+.characterImage {
+  width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.characterTile p {
+  font-size: 14px;
+  color: #333;
+}

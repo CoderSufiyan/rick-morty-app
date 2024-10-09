@@ -1,5 +1,33 @@
+.container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.errorMessage {
+  color: #ff4d4d;
+  background-color: #ffe6e6;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px 0;
+}
+
 .gridContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.searchBar {
+  margin-bottom: 20px;
+}
+
+.EpisodeCard {
+  transition: transform 0.3s;
+}
+
+.EpisodeCard:hover {
+  transform: scale(1.05);
+}

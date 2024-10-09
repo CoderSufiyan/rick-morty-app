@@ -1,12 +1,31 @@
-  .card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
+.card {
+  background-color: #ffffff;
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+  padding: 16px; 
+  text-align: center; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  max-width: 200px; 
+  margin: 10px; 
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.card:hover {
+  transform: scale(1.05); 
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+.title {
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  margin-bottom: 8px;
+  color: #333; 
+}
+
+.airDate, .episode, .characterCount {
+  font-size: 0.9rem; 
+  color: #555; 
+  margin: 4px 0; 
+}
